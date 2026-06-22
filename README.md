@@ -52,9 +52,11 @@
 
 ### Featured Projects
 
-| Project | Release | Description |
-|---------|---------|-------------|
-| [Obfusk8](https://github.com/x86byte/Obfusk8) | [v1.0 (27 May 2025)](https://github.com/x86byte/Obfusk8/releases) | Obfusk8 is a source level C++ compile-time and runtime obfuscation library for anti reverse engineering and binary hardening on Windows |
+| Project                                       | Release                                                                | Description                                                                                                                                                                |
+| --------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Obfusk8](https://github.com/x86byte/Obfusk8) | [v1.0](https://github.com/x86byte/Obfusk8/releases/tag/opts)      | Obfusk8 is a source level C++ compile-time and runtime obfuscation library for anti reverse engineering and binary hardening on Windows                                        |
+| [Sbox](https://github.com/x86byte/sbox)       | [v1.2.0 (Latest)](https://github.com/x86byte/sbox/releases/tag/v1.2.0) | Compile-time string shredding framework using constexpr AES blocks that eliminates plaintext artifacts from binaries, preventing static extraction and reverse engineering |
+| Ent8                                          | In Development                                                         | Native Bin2Bin obfuscation engine focused on instruction rewriting, control-flow transformation, binary mutation, and semantic-preserving anti-analysis techniques         |
 
 ---
 
