@@ -31,12 +31,13 @@
 
 ### Current Research & Engineering
 
-> • Bin2Bin Obfuscation Engineering (Ent8)
-> • LLM Systems Integration (C++ / Python)
-> • Retrieval-Augmented Generation (RAG) Architectures
-> • Compiler Design & Backend Engineering
-> • Interpreter Design & Language Runtime Development
+* Bin2Bin Obfuscation Engineering (**Ent8**)
+* LLM Systems Integration (**C++ / Python**)
+* Retrieval-Augmented Generation (**RAG**) Architectures
+* Compiler Design & Backend Engineering
+* Interpreter Design & Language Runtime Development
 
+---
 
 ### Core Expertise
 
