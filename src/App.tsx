@@ -321,7 +321,7 @@ mov r8d, [rdx+88h]`}
         <div 
           className="absolute inset-0 w-full h-full opacity-10 pointer-events-none mix-blend-screen"
           style={{ 
-            backgroundImage: "url('/image.png')", 
+            backgroundImage: "url('./img/image.png')", 
             backgroundSize: 'cover', 
             backgroundPosition: 'center', 
             filter: 'grayscale(10%) sepia(30%) hue-rotate(330deg)' 
@@ -356,7 +356,7 @@ mov r8d, [rdx+88h]`}
 
         {/* You can add your image.png here to have it appear under the text and the IDA view in the top header */}
         <div className="max-w-6xl mx-auto px-4 relative z-10 mt-12 hidden md:block">
-           <img src="/image.png" alt="x86byte graphic" className="w-full h-auto rounded-lg border border-orange-500/20 shadow-[0_0_50px_rgba(249,115,22,0.1)] object-cover max-h-[400px]" />
+           <img src="./img/image.png" alt="x86byte graphic" className="w-full h-auto rounded-lg border border-orange-500/20 shadow-[0_0_50px_rgba(249,115,22,0.1)] object-cover max-h-[400px]" />
         </div>
       </div>
 
