@@ -315,32 +315,34 @@ mov r8d, [rdx+88h]`}
       </div>
 
       {/* HEADER BANNER */}
-      <div className="relative w-full border-b border-orange-900/20 bg-gradient-to-b from-[#0a0805] via-[#060402] to-[#040201] py-14 overflow-hidden z-10">
+      <div className="relative w-full border-b border-orange-900/40 py-20 overflow-hidden z-10">
         
         {/* IDA Pro Call Graph Background Overlay */}
         <div 
-          className="absolute inset-0 w-full h-full opacity-10 pointer-events-none mix-blend-screen"
+          className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ 
             backgroundImage: "url('./img/image.png')", 
             backgroundSize: 'cover', 
-            backgroundPosition: 'center', 
-            filter: 'grayscale(10%) sepia(30%) hue-rotate(330deg)' 
+            backgroundPosition: 'center',
           }}
         ></div>
 
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 w-full h-full bg-slate-950/70 pointer-events-none"></div>
+
         <div className="max-w-6xl mx-auto px-4 relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div className="space-y-4 max-w-2xl">
-            <h1 className="text-3.5xl md:text-5xl font-display font-bold text-white tracking-tight leading-none">
+          <div className="space-y-4 max-w-2xl bg-slate-950/40 p-6 rounded-xl backdrop-blur-sm border border-slate-800/50">
+            <h1 className="text-3.5xl md:text-5xl font-display font-bold text-white tracking-tight leading-none text-shadow-sm">
               {loc.title}
             </h1>
-            <p className="text-slate-300 font-sans text-sm md:text-base leading-relaxed">
+            <p className="text-slate-200 font-sans text-sm md:text-base leading-relaxed text-shadow-sm">
               {loc.tagline}
             </p>
           </div>
 
           {/* IDA Basic Blocks / Custom Assembly Display */}
-          <div className="relative shrink-0 w-full md:w-[320px] bg-slate-950/80 border border-orange-900/30 rounded-lg p-4 font-mono text-[10px] text-orange-300/80 shadow-md">
-            <div className="flex items-center justify-between text-[8px] text-slate-500 border-b border-slate-900 pb-2 mb-2">
+          <div className="relative shrink-0 w-full md:w-[320px] bg-slate-950/90 backdrop-blur-md border border-orange-900/50 rounded-lg p-4 font-mono text-[10px] text-orange-300/90 shadow-2xl">
+            <div className="flex items-center justify-between text-[8px] text-slate-400 border-b border-slate-800 pb-2 mb-2">
             </div>
             
             <div className="space-y-1">
@@ -352,11 +354,6 @@ mov r8d, [rdx+88h]`}
               <div className="pl-3 text-orange-400">je      loc_ept_trampoline</div>
             </div>
           </div>
-        </div>
-
-        {/* You can add your image.png here to have it appear under the text and the IDA view in the top header */}
-        <div className="max-w-6xl mx-auto px-4 relative z-10 mt-12 hidden md:block">
-           <img src="./img/image.png" alt="x86byte graphic" className="w-full h-auto rounded-lg border border-orange-500/20 shadow-[0_0_50px_rgba(249,115,22,0.1)] object-cover max-h-[400px]" />
         </div>
       </div>
 
