@@ -341,7 +341,6 @@ mov r8d, [rdx+88h]`}
           {/* IDA Basic Blocks / Custom Assembly Display */}
           <div className="relative shrink-0 w-full md:w-[320px] bg-slate-950/80 border border-orange-900/30 rounded-lg p-4 font-mono text-[10px] text-orange-300/80 shadow-md">
             <div className="flex items-center justify-between text-[8px] text-slate-500 border-b border-slate-900 pb-2 mb-2">
-              <span>IDA VIEW-A</span>
             </div>
             
             <div className="space-y-1">
