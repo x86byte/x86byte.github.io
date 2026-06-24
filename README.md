@@ -44,21 +44,22 @@
 
 ### Core Expertise
 
-**Reverse Engineering & Threat Analysis** <br>
-![Reverse Engineering](https://img.shields.io/badge/Reverse%20Engineering-Static%20%26%20Dynamic-8e44ad?style=flat-square)
-![Malware Analysis](https://img.shields.io/badge/Malware%20Analysis-APT%20%26%20Obfuscation-e74c3c?style=flat-square)
-![Deobfuscation](https://img.shields.io/badge/Deobfuscation-Analysis%20%26%20Recovery-d2527f?style=flat-square)
-![Binary Analysis](https://img.shields.io/badge/Binary%20Analysis-Automated%20%7C%20Manual-f39c12?style=flat-square)
+**Reverse Engineering & Threat Analysis** 
+* ![Reverse Engineering](https://img.shields.io/badge/Reverse%20Engineering-Static%20%26%20Dynamic-8e44ad?style=flat-square)
+* ![Malware Analysis](https://img.shields.io/badge/Malware%20Analysis-APT%20%26%20Obfuscation-e74c3c?style=flat-square)
+* ![Deobfuscation](https://img.shields.io/badge/Deobfuscation-Analysis%20%26%20Recovery-d2527f?style=flat-square)
+* ![Binary Analysis](https://img.shields.io/badge/Binary%20Analysis-Automated%20%7C%20Manual-f39c12?style=flat-square)
 
-**Software Security & Obfuscation** <br>
-![Software Security Eng](https://img.shields.io/badge/Software%20Security%20Engineering-Binary%20%26%20System-blueviolet?style=flat-square)
-![Obfuscation Engineering](https://img.shields.io/badge/Obfuscation%20Engineering-LLVM%20%26%20Bin2Bin-9b59b6?style=flat-square)
-![Compiler Systems](https://img.shields.io/badge/Compiler%20Systems-LLVM%20%26%20Backend-27ae60?style=flat-square)
-![Exploit Development](https://img.shields.io/badge/Exploitation-Kernel%20%7C%20Usermode-c0392b?style=flat-square)
+**Software Security & Obfuscation** 
+* ![Software Security Eng](https://img.shields.io/badge/Software%20Security%20Engineering-Binary%20%26%20System-blueviolet?style=flat-square)
+* ![Obfuscation Engineering](https://img.shields.io/badge/Obfuscation%20Engineering-LLVM%20%26%20Bin2Bin-9b59b6?style=flat-square)
+* ![Compiler Systems](https://img.shields.io/badge/Compiler%20Systems-LLVM%20%26%20Backend-27ae60?style=flat-square)
+* ![Exploit Development](https://img.shields.io/badge/Exploitation-Kernel%20%7C%20Usermode-c0392b?style=flat-square)
 
-**Systems Internals & Tooling** <br>
-![Windows Security](https://img.shields.io/badge/Windows%20Security-Kernel%20%2F%20Usermode-007ACC?style=flat-square)
-![Security Tooling](https://img.shields.io/badge/Tooling-IDA%20%7C%20WinDbg%20%7C%20x64dbg-6c5ce7?style=flat-square)
+**Systems Internals & Tooling** 
+* ![Windows Security](https://img.shields.io/badge/Windows%20Security-Kernel%20%2F%20Usermode-007ACC?style=flat-square)
+* ![Security Tooling](https://img.shields.io/badge/Tooling-IDA%20%7C%20WinDbg%20%7C%20x64dbg-6c5ce7?style=flat-square)
+
 ---
 
 ### Featured Projects
