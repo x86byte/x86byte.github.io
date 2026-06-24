@@ -20,7 +20,7 @@ const TRANSLATIONS = {
     subtitle: "Low-Level Systems Security & Vulnerability Research",
     tagline: "Unveiling the inner mechanics of compilation boundaries, advanced reverse engineering, and offensive cybersecurity.",
     bioTitle: "About x86byte",
-    bioBody: "Security researcher specializing in Windows and iOS internals, low-level debugging, and vulnerability research. Creator of the OrcaCyberWeapons community. Focused on exploit development, system-level security architecture, and offensive cybersecurity.",
+    bioBody: "Security researcher specializing in Windows internals, low-level debugging, and vulnerability research. Creator of the OrcaCyberWeapons community. Focused on exploit development, system-level security architecture, and offensive cybersecurity.",
     filterAll: "ALL RESEARCH",
     filterMalware: "MALWARE ANALYSIS",
     filterReversing: "REVERSE ENGINEERING",
@@ -43,7 +43,7 @@ const TRANSLATIONS = {
     subtitle: "Investigación de Seguridad de Sistemas y Vulnerabilidades de Bajo Nivel",
     tagline: "Revelando los mecanismos internos de los límites de compilación, ingeniería inversa avanzada y la seguridad ofensiva.",
     bioTitle: "Sobre x86byte",
-    bioBody: "Investigador de seguridad especializado en el funcionamiento interno de Windows e iOS, depuración de bajo nivel e investigación de vulnerabilidades. Creador de la comunidad OrcaCyberWeapons. Enfocado en el desarrollo de exploits y ciberseguridad ofensiva.",
+    bioBody: "Investigador de seguridad especializado en el funcionamiento interno de Windows, depuración de bajo nivel e investigación de vulnerabilidades. Creador de la comunidad OrcaCyberWeapons. Enfocado en el desarrollo de exploits y ciberseguridad ofensiva.",
     filterAll: "TODA LA INVESTIGACIÓN",
     filterMalware: "ANÁLISIS DE MALWARE",
     filterReversing: "INGENIERÍA INVERSA",
@@ -66,7 +66,7 @@ const TRANSLATIONS = {
     subtitle: "Sécurité Système Bas Niveau & Recherche de Vulnérabilités",
     tagline: "Découvrir les mécanismes internes des frontières de compilation, de la rétro-ingénierie avancée et de la cybersécurité offensive.",
     bioTitle: "À Propos de x86byte",
-    bioBody: "Chercheur en sécurité spécialisé dans les systèmes internes Windows et iOS, le débogage bas niveau et la recherche de vulnérabilités. Créateur de la communauté OrcaCyberWeapons. Expert en développement d'exploits.",
+    bioBody: "Chercheur en sécurité spécialisé dans les systèmes internes Windows, le débogage bas niveau et la recherche de vulnérabilités. Créateur de la communauté OrcaCyberWeapons. Expert en développement d'exploits.",
     filterAll: "TOUTE LA RECHERCHE",
     filterMalware: "ANALYSE DE MALWARE",
     filterReversing: "RÉTRO-INGÉNIERIE",
@@ -89,7 +89,7 @@ const TRANSLATIONS = {
     subtitle: "Низкоуровневые Исследования Уязвимостей и Системной Безопасности",
     tagline: "Раскрытие внутренних механизмов компиляционных слоёв, продвинутого реверс-инжиниринга и наступательной кибербезопасности.",
     bioTitle: "О x86byte",
-    bioBody: "Исследователь безопасности, специализирующийся на внутреннем устройстве Windows и iOS, низкоуровневой отладке и поиске уязвимостей. Создатель сообщества OrcaCyberWeapons.",
+    bioBody: "Исследователь безопасности, специализирующийся на внутреннем устройстве Windows, низкоуровневой отладке и поиске уязвимостей. Создатель сообщества OrcaCyberWeapons.",
     filterAll: "ВСЕ ПУБЛИКАЦИИ",
     filterMalware: "АНАЛИЗ МАЛВАРИ",
     filterReversing: "РЕВЕРС-ИНЖИНИРИНГ",
@@ -380,9 +380,6 @@ mov r8d, [rdx+88h]`}
                       className="h-16 w-16 rounded-lg border border-orange-500/50 object-cover"
                     />
                     <div className="hidden h-16 w-16 rounded-lg bg-gradient-to-tr from-orange-400 to-slate-800 p-[1px] shrink-0" id="fallback-pfp">
-                      <div className="h-full w-full bg-slate-950 rounded-lg flex items-center justify-center text-orange-400 font-mono font-bold text-sm">
-                        x86
-                      </div>
                     </div>
                     <div>
                       <h2 className="font-display font-semibold text-lg text-slate-100 flex items-center gap-2">
@@ -635,7 +632,7 @@ mov r8d, [rdx+88h]`}
                 OrcaCyberWeapons Community
               </h1>
               <p className="text-slate-300 max-w-2xl mx-auto text-sm md:text-base">
-                The OrcaCyberWeapons community is a focused space for reverse engineers, exploit developers, and system-level hackers. We specialize in Windows and iOS vulnerability research, low-level debugging, and modern exploitation techniques.
+                The OrcaCyberWeapons community is a focused space for reverse engineers, exploit developers, and system-level hackers. We specialize in Windows vulnerability research, low-level debugging, and modern exploitation techniques.
               </p>
             </div>
 
