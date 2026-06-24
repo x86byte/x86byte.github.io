@@ -196,7 +196,7 @@ export default function App() {
   const loc = TRANSLATIONS[currentLang];
 
   return (
-    <div className="min-h-screen bg-[#060402] text-slate-100 selection:bg-rose-500 selection:text-white font-sans relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#060402] text-slate-100 selection:bg-rose-500 selection:text-white font-sans relative overflow-x-hidden flex flex-col">
       
       {/* FULLSCREEN BACKGROUND IDE PARSER AND FLOATING BLOCKS */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -341,11 +341,10 @@ mov r8d, [rdx+88h]`}
           {/* IDA Basic Blocks / Custom Assembly Display */}
           <div className="relative shrink-0 w-full md:w-[320px] bg-slate-950/80 border border-orange-900/30 rounded-lg p-4 font-mono text-[10px] text-orange-300/80 shadow-md">
             <div className="flex items-center justify-between text-[8px] text-slate-500 border-b border-slate-900 pb-2 mb-2">
-              <span>IDA VIEW-A // graph-node-0xfc</span>
+              <span>IDA VIEW-A</span>
             </div>
             
             <div className="space-y-1">
-              <div className="text-slate-500">// VMX Root-Mode EPT Exit Handler</div>
               <div className="text-rose-400">vmx_ept_violation:</div>
               <div className="pl-3">vmread  rax, 0x6400       ; read guest PA</div>
               <div className="pl-3">mov     rcx, cr3</div>
@@ -355,10 +354,15 @@ mov r8d, [rdx+88h]`}
             </div>
           </div>
         </div>
+
+        {/* You can add your image.png here to have it appear under the text and the IDA view in the top header */}
+        <div className="max-w-6xl mx-auto px-4 relative z-10 mt-12 hidden md:block">
+           <img src="/image.png" alt="x86byte graphic" className="w-full h-auto rounded-lg border border-orange-500/20 shadow-[0_0_50px_rgba(249,115,22,0.1)] object-cover max-h-[400px]" />
+        </div>
       </div>
 
       {/* DETAILED VIEWS */}
-      <main className="max-w-6xl mx-auto px-4 py-10 relative z-10">
+      <main className="max-w-6xl w-full mx-auto px-4 py-10 relative z-10 flex-grow">
         
         {/* TAB 1: HOME PAGE */}
         {activeTab === 'home' && (
