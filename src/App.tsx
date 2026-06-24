@@ -709,7 +709,7 @@ mov r8d, [rdx+88h]`}
 
                 <div className="prose prose-invert prose-sm md:prose-base max-w-none text-slate-300">
                   <p>
-                    I am <strong>x86byte</strong>, an aspiring software security engineer and malware reverse engineer. My primary focus lies in obfuscation engineering, reverse engineering of both malware and software, and advanced deobfuscation techniques.
+                    I am <strong>Zakaria</strong> aka <strong>x86byte</strong>, an aspiring software security engineer and malware reverse engineer. My primary focus lies in obfuscation engineering, reverse engineering of both malware and software, and advanced deobfuscation techniques.
                   </p>
                   <p>
                     With a deep passion for LLVM, Clang, and compiler design, my work frequently explores advanced execution environments, control flow manipulation, and both source-code based and bin2bin dynamic obfuscation engines. I specialize in tearing down complex malware, analyzing system internals, and am always happy to collaborate on interesting security projects.
