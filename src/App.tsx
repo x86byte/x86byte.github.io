@@ -430,6 +430,7 @@ mov r8d, [rdx+88h]`}
                     <img 
                       src="/pfp.jpg" // Will be replaced by user's actual image if available via relative path. Using generic fallback visually if not overridden locally. 
                       onError={(e) => {
+                         // Fallback structure
                          e.currentTarget.style.display = 'none';
                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
                       }}
@@ -472,7 +473,7 @@ mov r8d, [rdx+88h]`}
                 </div>
               </div>
 
-              {}
+              {/* Research Projects Listing Minimal */}
               <div className="lg:col-span-2 space-y-4">
                  <h2 className="text-sm font-display font-semibold text-slate-100 flex items-center gap-2 mb-2">
                     <FolderGit2 className="text-orange-400 w-4 h-4" />
@@ -507,13 +508,13 @@ mov r8d, [rdx+88h]`}
           </div>
         )}
 
-        {}
+        {/* TAB 2: RESEARCH PAPERS & BLOGS */}
         {activeTab === 'blog' && (
           <div className="space-y-8">
             {!selectedPost ? (
               <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 
-                {}
+                {/* Topic Filter Column */}
                 <div className="space-y-6 lg:col-span-1">
                   <div className="bg-slate-950/60 border border-orange-900/20 backdrop-blur-sm rounded-xl p-5 space-y-4 shadow-lg">
                     <h3 className="font-display font-semibold text-xs text-slate-300 uppercase tracking-widest border-b border-orange-900/30 pb-2.5 flex items-center gap-2 font-mono">
@@ -549,9 +550,9 @@ mov r8d, [rdx+88h]`}
                   </div>
                 </div>
 
-                {}
+                {/* Main Articles Stream */}
                 <div className="lg:col-span-3 space-y-6">
-                  {/}
+                  {/* Styled Search Field */}
                   <div className="relative backdrop-blur-sm">
                     <Search className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
                     <input
@@ -683,7 +684,7 @@ mov r8d, [rdx+88h]`}
           </div>
         )}
 
-        {}
+        {/* TAB 3: COMMUNITY PAGE */}
         {activeTab === 'community' && (
           <div className="max-w-4xl mx-auto space-y-10">
             
@@ -724,7 +725,7 @@ mov r8d, [rdx+88h]`}
                   </div>
                </div>
 
-               {}
+               {/* BinaryHardening */}
                <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4 flex flex-col justify-between">
                   <div className="space-y-4">
                      <h3 className="font-display font-semibold text-lg text-orange-400">
@@ -744,7 +745,7 @@ mov r8d, [rdx+88h]`}
                   </div>
                </div>
 
-               {}
+               {/* Orca Cyber Weapons */}
                <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4 flex flex-col justify-between">
                   <div className="space-y-4">
                      <h3 className="font-display font-semibold text-lg text-orange-400">
@@ -771,7 +772,7 @@ mov r8d, [rdx+88h]`}
           </div>
         )}
 
-        {}
+        {/* TAB 4: ABOUT PAGE */}
         {activeTab === 'about' && (
           <div className="max-w-4xl mx-auto space-y-10">
             <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 rounded-2xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-10 items-center md:items-start">
@@ -829,7 +830,7 @@ mov r8d, [rdx+88h]`}
 
       </main>
 
-      {}
+      {/* FOOTER */}
       <footer className="w-full border-t border-slate-900 bg-slate-950/80 backdrop-blur-md py-8 text-xs font-mono text-slate-500 relative z-10 mt-auto">
         <div className="max-w-6xl mx-auto px-4 flex flex-col items-center justify-center gap-4">
           <div className="flex gap-6 items-center">
