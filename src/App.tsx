@@ -20,7 +20,7 @@ const TRANSLATIONS = {
     subtitle: "Low-Level Systems Security & Vulnerability Research",
     tagline: "Unveiling the inner mechanics of compilation boundaries, advanced reverse engineering, and offensive cybersecurity.",
     bioTitle: "About x86byte",
-    bioBody: "Security researcher specializing in Windows internals, low-level debugging, and vulnerability research. Creator of the OrcaCyberWeapons community. Focused on exploit development, system-level security architecture, and offensive cybersecurity.",
+    bioBody: "Security researcher specializing in Windows and iOS internals, low-level debugging, and vulnerability research. Creator of the OrcaCyberWeapons community. Focused on exploit development, system-level security architecture, and offensive cybersecurity.",
     filterAll: "ALL RESEARCH",
     filterMalware: "MALWARE ANALYSIS",
     filterReversing: "REVERSE ENGINEERING",
@@ -43,7 +43,7 @@ const TRANSLATIONS = {
     subtitle: "Investigación de Seguridad de Sistemas y Vulnerabilidades de Bajo Nivel",
     tagline: "Revelando los mecanismos internos de los límites de compilación, ingeniería inversa avanzada y la seguridad ofensiva.",
     bioTitle: "Sobre x86byte",
-    bioBody: "Investigador de seguridad especializado en el funcionamiento interno de Windows, depuración de bajo nivel e investigación de vulnerabilidades. Creador de la comunidad OrcaCyberWeapons. Enfocado en el desarrollo de exploits y ciberseguridad ofensiva.",
+    bioBody: "Investigador de seguridad especializado en el funcionamiento interno de Windows e iOS, depuración de bajo nivel e investigación de vulnerabilidades. Creador de la comunidad OrcaCyberWeapons. Enfocado en el desarrollo de exploits y ciberseguridad ofensiva.",
     filterAll: "TODA LA INVESTIGACIÓN",
     filterMalware: "ANÁLISIS DE MALWARE",
     filterReversing: "INGENIERÍA INVERSA",
@@ -66,7 +66,7 @@ const TRANSLATIONS = {
     subtitle: "Sécurité Système Bas Niveau & Recherche de Vulnérabilités",
     tagline: "Découvrir les mécanismes internes des frontières de compilation, de la rétro-ingénierie avancée et de la cybersécurité offensive.",
     bioTitle: "À Propos de x86byte",
-    bioBody: "Chercheur en sécurité spécialisé dans les systèmes internes Windows, le débogage bas niveau et la recherche de vulnérabilités. Créateur de la communauté OrcaCyberWeapons. Expert en développement d'exploits.",
+    bioBody: "Chercheur en sécurité spécialisé dans les systèmes internes Windows et iOS, le débogage bas niveau et la recherche de vulnérabilités. Créateur de la communauté OrcaCyberWeapons. Expert en développement d'exploits.",
     filterAll: "TOUTE LA RECHERCHE",
     filterMalware: "ANALYSE DE MALWARE",
     filterReversing: "RÉTRO-INGÉNIERIE",
@@ -89,7 +89,7 @@ const TRANSLATIONS = {
     subtitle: "Низкоуровневые Исследования Уязвимостей и Системной Безопасности",
     tagline: "Раскрытие внутренних механизмов компиляционных слоёв, продвинутого реверс-инжиниринга и наступательной кибербезопасности.",
     bioTitle: "О x86byte",
-    bioBody: "Исследователь безопасности, специализирующийся на внутреннем устройстве Windows, низкоуровневой отладке и поиске уязвимостей. Создатель сообщества OrcaCyberWeapons.",
+    bioBody: "Исследователь безопасности, специализирующийся на внутреннем устройстве Windows и iOS, низкоуровневой отладке и поиске уязвимостей. Создатель сообщества OrcaCyberWeapons.",
     filterAll: "ВСЕ ПУБЛИКАЦИИ",
     filterMalware: "АНАЛИЗ МАЛВАРИ",
     filterReversing: "РЕВЕРС-ИНЖИНИРИНГ",
@@ -184,6 +184,63 @@ export default function App() {
       return () => clearTimeout(timeout);
     }
   }, [charIdx, currentBlockIdx]);
+
+  // Synchronize state with URL Hash for perfect GitHub Pages navigation compatibility
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.startsWith('#/about')) {
+        setActiveTab('about');
+        setSelectedPost(null);
+      } else if (hash.startsWith('#/community')) {
+        setActiveTab('community');
+        setSelectedPost(null);
+      } else if (hash.startsWith('#/research') || hash.startsWith('#/blog')) {
+        setActiveTab('blog');
+        const parts = hash.split('/');
+        if (parts.length > 2) {
+          const postId = parts[2];
+          const post = BLOG_POSTS.find(p => p.id.toLowerCase() === postId);
+          if (post) {
+            setSelectedPost(post);
+          } else {
+            setSelectedPost(null);
+          }
+        } else {
+          setSelectedPost(null);
+        }
+      } else {
+        setActiveTab('home');
+        setSelectedPost(null);
+      }
+    };
+
+    // Run on mount to parse initial URL
+    handleHashChange();
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Update hash when tab/post changes
+  useEffect(() => {
+    let targetHash = '#/';
+    if (activeTab === 'about') {
+      targetHash = '#/about';
+    } else if (activeTab === 'community') {
+      targetHash = '#/community';
+    } else if (activeTab === 'blog') {
+      if (selectedPost) {
+        targetHash = `#/research/${selectedPost.id.toLowerCase()}`;
+      } else {
+        targetHash = '#/research';
+      }
+    }
+    
+    if (window.location.hash !== targetHash) {
+      window.history.pushState(null, '', targetHash);
+    }
+  }, [activeTab, selectedPost]);
 
   const filteredPosts = BLOG_POSTS.filter(post => {
     const matchesCategory = blogCategory === 'all' || post.category === blogCategory;
@@ -343,6 +400,7 @@ mov r8d, [rdx+88h]`}
           {/* IDA Basic Blocks / Custom Assembly Display */}
           <div className="relative shrink-0 w-full md:w-[320px] bg-slate-950/90 backdrop-blur-md border border-orange-900/50 rounded-lg p-4 font-mono text-[10px] text-orange-300/90 shadow-2xl">
             <div className="flex items-center justify-between text-[8px] text-slate-400 border-b border-slate-800 pb-2 mb-2">
+              <span>IDA VIEW-A</span>
             </div>
             
             <div className="space-y-1">
@@ -372,7 +430,6 @@ mov r8d, [rdx+88h]`}
                     <img 
                       src="/pfp.jpg" // Will be replaced by user's actual image if available via relative path. Using generic fallback visually if not overridden locally. 
                       onError={(e) => {
-                         // Fallback structure
                          e.currentTarget.style.display = 'none';
                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
                       }}
@@ -380,6 +437,9 @@ mov r8d, [rdx+88h]`}
                       className="h-16 w-16 rounded-lg border border-orange-500/50 object-cover"
                     />
                     <div className="hidden h-16 w-16 rounded-lg bg-gradient-to-tr from-orange-400 to-slate-800 p-[1px] shrink-0" id="fallback-pfp">
+                      <div className="h-full w-full bg-slate-950 rounded-lg flex items-center justify-center text-orange-400 font-mono font-bold text-sm">
+                        x86
+                      </div>
                     </div>
                     <div>
                       <h2 className="font-display font-semibold text-lg text-slate-100 flex items-center gap-2">
@@ -412,7 +472,7 @@ mov r8d, [rdx+88h]`}
                 </div>
               </div>
 
-              {/* Research Projects Listing Minimal */}
+              {}
               <div className="lg:col-span-2 space-y-4">
                  <h2 className="text-sm font-display font-semibold text-slate-100 flex items-center gap-2 mb-2">
                     <FolderGit2 className="text-orange-400 w-4 h-4" />
@@ -447,13 +507,13 @@ mov r8d, [rdx+88h]`}
           </div>
         )}
 
-        {/* TAB 2: RESEARCH PAPERS & BLOGS */}
+        {}
         {activeTab === 'blog' && (
           <div className="space-y-8">
             {!selectedPost ? (
               <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 
-                {/* Topic Filter Column */}
+                {}
                 <div className="space-y-6 lg:col-span-1">
                   <div className="bg-slate-950/60 border border-orange-900/20 backdrop-blur-sm rounded-xl p-5 space-y-4 shadow-lg">
                     <h3 className="font-display font-semibold text-xs text-slate-300 uppercase tracking-widest border-b border-orange-900/30 pb-2.5 flex items-center gap-2 font-mono">
@@ -489,9 +549,9 @@ mov r8d, [rdx+88h]`}
                   </div>
                 </div>
 
-                {/* Main Articles Stream */}
+                {}
                 <div className="lg:col-span-3 space-y-6">
-                  {/* Styled Search Field */}
+                  {/}
                   <div className="relative backdrop-blur-sm">
                     <Search className="absolute left-3 top-3.5 h-4 w-4 text-slate-500" />
                     <input
@@ -623,7 +683,7 @@ mov r8d, [rdx+88h]`}
           </div>
         )}
 
-        {/* TAB 3: COMMUNITY PAGE */}
+        {}
         {activeTab === 'community' && (
           <div className="max-w-4xl mx-auto space-y-10">
             
@@ -632,7 +692,7 @@ mov r8d, [rdx+88h]`}
                 OrcaCyberWeapons Community
               </h1>
               <p className="text-slate-300 max-w-2xl mx-auto text-sm md:text-base">
-                The OrcaCyberWeapons community is a focused space for reverse engineers, exploit developers, and system-level hackers. We specialize in Windows vulnerability research, low-level debugging, and modern exploitation techniques.
+                The OrcaCyberWeapons community is a focused space for reverse engineers, exploit developers, and system-level hackers. We specialize in Windows and iOS vulnerability research, low-level debugging, and modern exploitation techniques.
               </p>
             </div>
 
@@ -646,31 +706,59 @@ mov r8d, [rdx+88h]`}
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-10">
                {/* Vulnerability Researchers */}
-               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4">
-                  <h3 className="font-display font-semibold text-lg text-orange-400">
-                     Vulnerability Researchers (Group)
-                  </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                     A global research-oriented Telegram group originally based in the Russian security scene. It's home to vulnerability hunters and system-level researchers discussing low-level exploitation, CVEs, and reverse engineering.
-                  </p>
-                  <a href="https://t.me/VulnerabilityResearchers" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded font-bold transition-colors">
-                     [ JOIN GROUP ] <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4 flex flex-col justify-between">
+                  <div className="space-y-4">
+                     <h3 className="font-display font-semibold text-lg text-orange-400">
+                        Vulnerability Researchers (Group)
+                     </h3>
+                     <p className="text-slate-300 text-sm leading-relaxed">
+                        A global research-oriented Telegram group originally based in the Russian security scene. It's home to vulnerability hunters and system-level researchers discussing low-level exploitation, CVEs, and reverse engineering.
+                     </p>
+                  </div>
+                  <div className="pt-2">
+                     <a href="https://t.me/VulnerabilityResearchers" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded font-bold transition-colors w-full justify-center">
+                        [ JOIN GROUP ] <ArrowRight className="w-3.5 h-3.5" />
+                     </a>
+                  </div>
                </div>
 
-               {/* Orca Cyber Weapons */}
-               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4">
-                  <h3 className="font-display font-semibold text-lg text-orange-400">
-                     Orca Cyber Weapons (Channel)
-                  </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                     A high-quality feed of real-world exploits, vulnerability discoveries, advanced CVEs, and system-level research. Ideal for professionals tracking offensive security and low-level attack surfaces.
-                  </p>
-                  <a href="https://t.me/OrcaCyberWeapons" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded font-bold transition-colors">
-                     [ VIEW CHANNEL ] <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+               {}
+               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4 flex flex-col justify-between">
+                  <div className="space-y-4">
+                     <h3 className="font-display font-semibold text-lg text-orange-400">
+                        BinaryHardening (Research Org)
+                     </h3>
+                     <p className="text-slate-300 text-sm leading-relaxed">
+                        A research community focused on reverse engineering, binary hardening, LLVM transformations, obfuscation, malware analysis, exploit development, and low-level systems research. Always looking to collaborate on RE projects!
+                     </p>
+                  </div>
+                  <div className="pt-2 space-y-2">
+                     <a href="https://discord.com/invite/gmJJ6737Us" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded font-bold transition-colors w-full justify-center">
+                        [ JOIN DISCORD ] <ArrowRight className="w-3.5 h-3.5" />
+                     </a>
+                     <a href="https://github.com/BinaryHardening" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 px-4 py-2 rounded font-bold transition-colors w-full justify-center">
+                        [ GITHUB ORG ] <ExternalLink className="w-3.5 h-3.5" />
+                     </a>
+                  </div>
+               </div>
+
+               {}
+               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4 flex flex-col justify-between">
+                  <div className="space-y-4">
+                     <h3 className="font-display font-semibold text-lg text-orange-400">
+                        Orca Cyber Weapons (Channel)
+                     </h3>
+                     <p className="text-slate-300 text-sm leading-relaxed">
+                        A high-quality feed of real-world exploits, vulnerability discoveries, advanced CVEs, and system-level research. Ideal for professionals tracking offensive security and low-level attack surfaces.
+                     </p>
+                  </div>
+                  <div className="pt-2">
+                     <a href="https://t.me/OrcaCyberWeapons" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded font-bold transition-colors w-full justify-center">
+                        [ VIEW CHANNEL ] <ArrowRight className="w-3.5 h-3.5" />
+                     </a>
+                  </div>
                </div>
             </div>
 
@@ -683,7 +771,7 @@ mov r8d, [rdx+88h]`}
           </div>
         )}
 
-        {/* TAB 4: ABOUT PAGE */}
+        {}
         {activeTab === 'about' && (
           <div className="max-w-4xl mx-auto space-y-10">
             <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 rounded-2xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row gap-10 items-center md:items-start">
@@ -709,7 +797,7 @@ mov r8d, [rdx+88h]`}
 
                 <div className="prose prose-invert prose-sm md:prose-base max-w-none text-slate-300">
                   <p>
-                    I am <strong>Zakaria</strong> aka <strong>x86byte</strong>, an aspiring software security engineer and malware reverse engineer. My primary focus lies in obfuscation engineering, reverse engineering of both malware and software, and advanced deobfuscation techniques.
+                    I am <strong>x86byte</strong>, an aspiring software security engineer and malware reverse engineer. My primary focus lies in obfuscation engineering, reverse engineering of both malware and software, and advanced deobfuscation techniques.
                   </p>
                   <p>
                     With a deep passion for LLVM, Clang, and compiler design, my work frequently explores advanced execution environments, control flow manipulation, and both source-code based and bin2bin dynamic obfuscation engines. I specialize in tearing down complex malware, analyzing system internals, and am always happy to collaborate on interesting security projects.
@@ -741,7 +829,7 @@ mov r8d, [rdx+88h]`}
 
       </main>
 
-      {/* FOOTER */}
+      {}
       <footer className="w-full border-t border-slate-900 bg-slate-950/80 backdrop-blur-md py-8 text-xs font-mono text-slate-500 relative z-10 mt-auto">
         <div className="max-w-6xl mx-auto px-4 flex flex-col items-center justify-center gap-4">
           <div className="flex gap-6 items-center">
