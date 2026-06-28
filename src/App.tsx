@@ -686,14 +686,14 @@ mov r8d, [rdx+88h]`}
 
         {/* TAB 3: COMMUNITY PAGE */}
         {activeTab === 'community' && (
-          <div className="max-w-4xl mx-auto space-y-10">
+          <div className="max-w-5xl mx-auto space-y-10">
             
             <div className="text-center space-y-4 pt-4">
               <h1 className="text-3xl md:text-5xl font-display font-bold text-white text-shadow-orange">
-                OrcaCyberWeapons Community
+                Security Research Communities
               </h1>
               <p className="text-slate-300 max-w-2xl mx-auto text-sm md:text-base">
-                The OrcaCyberWeapons community is a focused space for reverse engineers, exploit developers, and system-level hackers. We specialize in Windows and iOS vulnerability research, low-level debugging, and modern exploitation techniques.
+                Collaborative and high-quality spaces dedicated to low-level reverse engineering, binary hardening, compiler design, exploit development, and systems security.
               </p>
             </div>
 
@@ -703,61 +703,70 @@ mov r8d, [rdx+88h]`}
                 alt="Community Warfighter"
                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 className="max-w-full h-auto rounded-xl border border-orange-900/40 shadow-2xl object-cover"
-                style={{ maxHeight: '400px' }}
+                style={{ maxHeight: '350px' }}
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-10">
-               {/* Vulnerability Researchers */}
-               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4 flex flex-col justify-between">
-                  <div className="space-y-4">
-                     <h3 className="font-display font-semibold text-lg text-orange-400">
-                        Vulnerability Researchers (Group)
-                     </h3>
-                     <p className="text-slate-300 text-sm leading-relaxed">
-                        A global research-oriented Telegram group originally based in the Russian security scene. It's home to vulnerability hunters and system-level researchers discussing low-level exploitation, CVEs, and reverse engineering.
-                     </p>
-                  </div>
-                  <div className="pt-2">
-                     <a href="https://t.me/VulnerabilityResearchers" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded font-bold transition-colors w-full justify-center">
-                        [ JOIN GROUP ] <ArrowRight className="w-3.5 h-3.5" />
-                     </a>
-                  </div>
-               </div>
-
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10">
                {/* BinaryHardening */}
-               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4 flex flex-col justify-between">
+               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/40 rounded-xl p-6 md:p-8 transition-all shadow-xl space-y-6 flex flex-col justify-between">
                   <div className="space-y-4">
-                     <h3 className="font-display font-semibold text-lg text-orange-400">
-                        BinaryHardening (Research Org)
+                     <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono border border-orange-950/50 bg-orange-950/20 text-orange-400 px-2.5 py-0.5 rounded font-bold uppercase tracking-wider">
+                           Research Org
+                        </span>
+                     </div>
+                     <h3 className="font-display font-semibold text-2xl text-slate-100">
+                        BinaryHardening
                      </h3>
                      <p className="text-slate-300 text-sm leading-relaxed">
-                        A research community focused on reverse engineering, binary hardening, LLVM transformations, obfuscation, malware analysis, exploit development, and low-level systems research. Always looking to collaborate on RE projects!
+                        BinaryHardening is a research community focused on reverse engineering, binary hardening, LLVM transformations, obfuscation, and low-level systems research.
                      </p>
+                     
+                     <div className="bg-slate-950/90 border-l-2 border-orange-500/50 p-4 rounded-r-lg font-mono text-xs text-slate-400 space-y-2">
+                        <div className="flex items-center gap-1 text-slate-500">
+                           <span className="font-bold text-orange-400">@x86byte</span>
+                           <span>•</span>
+                           <span>Posted on X</span>
+                        </div>
+                        <p className="italic">
+                           "We're building a small community around binary security research — RE, obfuscation, exploit dev, compilers, malware analysis, binary hardening. Come join us. Always happy to meet more RE people."
+                        </p>
+                     </div>
                   </div>
-                  <div className="pt-2 space-y-2">
-                     <a href="https://discord.com/invite/gmJJ6737Us" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded font-bold transition-colors w-full justify-center">
+                  
+                  <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                     <a href="https://discord.com/invite/gmJJ6737Us" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2.5 rounded font-bold transition-colors justify-center">
                         [ JOIN DISCORD ] <ArrowRight className="w-3.5 h-3.5" />
                      </a>
-                     <a href="https://github.com/BinaryHardening" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 px-4 py-2 rounded font-bold transition-colors w-full justify-center">
+                     <a href="https://github.com/BinaryHardening" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 px-4 py-2.5 rounded font-bold transition-colors justify-center">
                         [ GITHUB ORG ] <ExternalLink className="w-3.5 h-3.5" />
                      </a>
                   </div>
                </div>
 
                {/* Orca Cyber Weapons */}
-               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/50 rounded-xl p-6 transition-all shadow-xl space-y-4 flex flex-col justify-between">
+               <div className="bg-slate-950/80 backdrop-blur-md border border-slate-900 hover:border-orange-900/40 rounded-xl p-6 md:p-8 transition-all shadow-xl space-y-6 flex flex-col justify-between">
                   <div className="space-y-4">
-                     <h3 className="font-display font-semibold text-lg text-orange-400">
-                        Orca Cyber Weapons (Channel)
+                     <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono border border-slate-800 bg-slate-950 text-slate-400 px-2.5 py-0.5 rounded font-bold uppercase tracking-wider">
+                           Security Feed
+                        </span>
+                     </div>
+                     <h3 className="font-display font-semibold text-2xl text-slate-100">
+                        Orca Cyber Weapons
                      </h3>
                      <p className="text-slate-300 text-sm leading-relaxed">
-                        A high-quality feed of real-world exploits, vulnerability discoveries, advanced CVEs, and system-level research. Ideal for professionals tracking offensive security and low-level attack surfaces.
+                        A dedicated space for reverse engineers, exploit developers, and system-level hackers. Specializes in Windows and iOS internals, advanced vulnerability research, low-level debugging, and modern offensive security methodologies.
+                     </p>
+                     <p className="text-slate-400 text-xs leading-relaxed font-sans">
+                        Orca Cyber Weapons serves as a high-quality directory of real-world exploits, deep CVE writeups, malware breakdowns, and system-level research.
                      </p>
                   </div>
-                  <div className="pt-2">
-                     <a href="https://t.me/OrcaCyberWeapons" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2 rounded font-bold transition-colors w-full justify-center">
-                        [ VIEW CHANNEL ] <ArrowRight className="w-3.5 h-3.5" />
+                  
+                  <div className="pt-4">
+                     <a href="https://t.me/OrcaCyberWeapons" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-mono bg-orange-500 hover:bg-orange-600 text-black px-4 py-2.5 rounded font-bold transition-colors w-full justify-center">
+                        [ VIEW TELEGRAM CHANNEL ] <ArrowRight className="w-3.5 h-3.5" />
                      </a>
                   </div>
                </div>
@@ -765,7 +774,7 @@ mov r8d, [rdx+88h]`}
 
             <div className="bg-orange-950/20 border border-orange-900/40 p-6 rounded-xl text-center shadow-lg mb-10">
                <p className="text-amber-500 font-sans text-sm md:text-base leading-relaxed">
-                  If you're passionate about security research, reverse engineering, and low-level systems, you'll find valuable content and like-minded individuals in these spaces. Everyone with genuine interest is welcome to join and learn.
+                  If you're passionate about low-level research, compilers, reverse engineering, and binary analysis, you're welcome to participate, collaborate, and share knowledge in these communities.
                </p>
             </div>
 
